@@ -10,9 +10,8 @@ var fields = document.querySelectorAll("#form-user-create [name]")
 user = {}
 
 function addline(dataUser){
-  var tr = document.createElement("tr")
 
-  tr.innerHTML =`
+  document.getElementById("table-users").innerHTML =`
     <tr>
       <td><img src="dist/img/user1-128x128.jpg" alt="User Image" class="img-circle img-sm"></td>
       <td>${dataUser.name}</td>
@@ -25,7 +24,6 @@ function addline(dataUser){
       </td>
     </tr>  
   `
-  document.getElementById("table-users").appendChild(tr)
 }
 
 document.getElementById("form-user-create").addEventListener("submit",event=>{
@@ -38,5 +36,16 @@ document.getElementById("form-user-create").addEventListener("submit",event=>{
       user[item.name] = item.value
     }
   })
-  addline(user)
+
+  var objectUser = new User(
+    user.name,
+    user.gender,
+    user.birth,
+    user.country,
+    user.email,
+    user.password,
+    user.photo,
+    user.admin
+  )
+  addline(objectUser)
 })
