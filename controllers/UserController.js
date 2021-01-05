@@ -105,7 +105,7 @@ class UserController {
         } 
       } else if (field.name == "admin") {
         user[field.name] = field.checked;
-        console.log(user[field.name]);
+        // console.log(user[field.name]);
       } else {
         user[field.name] = field.value;
       }
